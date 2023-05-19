@@ -8,6 +8,7 @@ import lombok.Getter;
 public enum ErrorCode {
 
     FOOD_NOT_FOUND(404, "해당하는 음식 관련 문제가 없습니다."),
+    LANDMARK_NOT_FOUND(404, "해당하는 랜드마크 관련 문제가 없습니다."),
     INTERNAL_SERVER_ERROR(500,"서버 에러");
 
     private int status;

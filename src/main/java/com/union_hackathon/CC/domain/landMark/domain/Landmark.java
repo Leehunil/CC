@@ -1,9 +1,7 @@
 package com.union_hackathon.CC.domain.landMark.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.union_hackathon.CC.domain.choice.domain.Choice;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -29,6 +27,10 @@ public class Landmark {
     private String hint;
 
     private String answer;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "choice_id")
+    private Choice choice;
 
 
 }

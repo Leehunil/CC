@@ -6,18 +6,22 @@ import com.union_hackathon.CC.domain.food.presentation.dto.response.FoodAnswerRe
 import com.union_hackathon.CC.domain.food.presentation.dto.response.FoodHintDto;
 import com.union_hackathon.CC.domain.food.presentation.dto.response.FoodQuestionDto;
 import com.union_hackathon.CC.domain.food.service.FoodService;
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/food")
 public class FoodController {
 
-    private final FoodService foodService;
+    @Resource(name = "foodService")
+    private FoodService foodService;
 
     @GetMapping("/question")
-    public FoodQuestionDto getFoodQuestion() {
+    public List<FoodQuestionDto> getFoodQuestion() {
         return foodService.getFoodQuestion();
     }
 

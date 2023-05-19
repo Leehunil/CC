@@ -10,6 +10,7 @@ import com.union_hackathon.CC.domain.food.presentation.dto.response.FoodHintDto;
 import com.union_hackathon.CC.domain.food.presentation.dto.response.FoodQuestionDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,21 +18,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Scope("prototype")
 @Transactional(readOnly = true)
 @Slf4j
 public class FoodService {
 
     private final FoodRepository foodRepository;
-    private
 
     //문제, 사진, 객관식 문제
-    public FoodQuestionDto getFoodQuestion() {
-        checkFoodList();
-        Food food = getRandomFood(foodList);
-        return new FoodQuestionDto(food);
+    public List<FoodQuestionDto> getFoodQuestion() {
+        List<Food> foodList = foodRepository.findAll();
+        return foodList.stream().map(food -> new FoodQuestionDto(food)).collect(Collectors.toList());
     }
 
     //힌트 주기
@@ -73,17 +74,4 @@ public class FoodService {
         return food;
     }
 
-    private List<Food> getFoodAll(){
-        return foodRepository.findAll();
-    }
-
-    //check List
-    private List<Food> checkFoodList(){
-        if (foodList.isEmpty()) {
-            log.info("여기");
-            foodList = foodRepository.findAll();
-        }
-        log.info("aaaa");
-        return foodList;
-    }
 }
