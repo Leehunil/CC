@@ -18,11 +18,12 @@ public class Costume {
     @Column(name = "costume_id")
     private Long id;
 
+    @Column(length = 10000000)
     private String url;
 
     private String question;
 
-    @Column(length = 100000)
+    @Column(length = 10000000)
     private String info;
 
     private String hint;
