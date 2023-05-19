@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/cc
+    url: jdbc:mariadb://cc.crnv58a7zwkg.ap-northeast-2.rds.amazonaws.com:3306/cc
     username: root
     password: hunil3751
 
