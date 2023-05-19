@@ -11,6 +11,10 @@ spring:
     properties:
       hibernate:
         format_sql: ture
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
 
 logging.level:
   org.hibernate.SQL: debug
