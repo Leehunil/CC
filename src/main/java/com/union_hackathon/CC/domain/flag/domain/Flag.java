@@ -18,7 +18,7 @@ public class Flag {
     @Column(name = "flag_id")
     private Long id;
 
-    @Column(length = 10000000)
+    @Column(columnDefinition = "TEXT")
     private String url;
 
     private String question;
