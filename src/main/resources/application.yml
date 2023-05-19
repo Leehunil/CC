@@ -12,12 +12,5 @@ spring:
       hibernate:
         format_sql: ture
 
-aws:
-  access-key:
-  secret-key:
-  s3:
-    bucket: test
-    base-url: test
-
 logging.level:
   org.hibernate.SQL: debug
