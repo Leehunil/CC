@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/cc
+    username: root
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: ture
+
+aws:
+  access-key:
+  secret-key:
+  s3:
+    bucket: test
+    base-url: test
+
+logging.level:
+  org.hibernate.SQL: debug
