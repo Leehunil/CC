@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-@Scope("prototype")
 @Transactional(readOnly = true)
 @Slf4j
 public class FoodService {
@@ -63,15 +62,6 @@ public class FoodService {
         return foodRepository
                 .findById(foodId)
                 .orElseThrow(()-> FoodNotFoundException.EXCEPTION);
-    }
-
-    //리스트에서 랜덤으로 뽑기
-    private Food getRandomFood(List<Food> foodList) {
-        Collections.shuffle(foodList);
-        Food food = foodList.get(0);
-        log.info(food.getId().toString());
-        foodList.remove(food);
-        return food;
     }
 
 }

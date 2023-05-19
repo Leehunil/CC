@@ -17,8 +17,7 @@ import java.util.List;
 @RequestMapping("/food")
 public class FoodController {
 
-    @Resource(name = "foodService")
-    private FoodService foodService;
+    private final FoodService foodService;
 
     @GetMapping("/question")
     public List<FoodQuestionDto> getFoodQuestion() {
