@@ -22,6 +22,7 @@ public class Costume {
 
     private String question;
 
+    @Column(length = 100000)
     private String info;
 
     private String hint;
